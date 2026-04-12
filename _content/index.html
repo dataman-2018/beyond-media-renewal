@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond メディアリニューアル提案 — あらゆるビジネスの"Beyond"を探るグループメディアへ。</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --sh-black: #1a1a2e;
+    --sh-dark: #16213e;
+    --sh-accent: #0f3460;
+    --sh-blue: #4361ee;
+    --sh-light: #f8f9fa;
+    --sh-gray: #6c757d;
+    --sh-red: #e63946;
+    --sh-green: #2a9d8f;
+    --sh-orange: #e76f51;
+  }
+
+  .reveal {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 24px;
+    color: var(--sh-black);
+  }
+
+  .reveal .slides {
+    text-align: left;
+  }
+
+  .reveal .slides section {
+    padding: 40px 60px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .reveal h1 {
+    font-size: 2.4em;
+    font-weight: 900;
+    line-height: 1.3;
+    color: var(--sh-black);
+    margin-bottom: 0.3em;
+  }
+
+  .reveal h2 {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--sh-black);
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid var(--sh-blue);
+    padding-bottom: 0.2em;
+    display: inline-block;
+  }
+
+  .reveal h3 {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--sh-accent);
+    margin-bottom: 0.4em;
+  }
+
+  .reveal p, .reveal li {
+    font-size: 0.85em;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .reveal ul { list-style: none; padding-left: 0; }
+  .reveal ul li::before {
+    content: "\2014";
+    color: var(--sh-blue);
+    font-weight: 700;
+    margin-right: 0.5em;
+  }
+
+  .reveal table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75em;
+    margin-top: 0.8em;
+  }
+
+  .reveal table th {
+    background: var(--sh-dark);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .reveal table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .reveal table tr:nth-child(even) td {
+    background: #f5f7fa;
+  }
+
+  /* Title slide */
+  .slide-title {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, var(--sh-black) 0%, var(--sh-dark) 50%, var(--sh-accent) 100%);
+    color: white !important;
+  }
+  .slide-title h1 { color: white; font-size: 2.6em; }
+  .slide-title .subtitle {
+    font-size: 1.2em;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+    margin-top: 0.3em;
+  }
+  .slide-title .company {
+    font-size: 0.7em;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2em;
+  }
+
+  /* Section divider */
+  .slide-divider {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--sh-blue);
+    color: white !important;
+  }
+  .slide-divider h2 {
+    color: white;
+    border-bottom-color: rgba(255,255,255,0.4);
+    font-size: 2em;
+  }
+  .slide-divider p { color: rgba(255,255,255,0.85); font-size: 1em; }
+
+  /* Stat callout */
+  .stat-big {
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--sh-blue);
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.9em;
+    color: var(--sh-gray);
+    margin-top: 0.2em;
+  }
+
+  /* Grid layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 1em;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 1em;
+  }
+
+  /* Card */
+  .card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .card.accent {
+    border-left: 4px solid var(--sh-blue);
+  }
+  .card.dark {
+    background: var(--sh-dark);
+    color: white;
+    border: none;
+  }
+  .card.dark h3, .card.dark p, .card.dark li { color: white; }
+  .card.dark li::before { color: rgba(255,255,255,0.5); }
+
+  .card h3 { margin-top: 0; }
+  .card .num {
+    font-size: 2.2em;
+    font-weight: 900;
+    color: var(--sh-blue);
+    line-height: 1;
+    margin-bottom: 0.2em;
+  }
+
+  /* Problem cards */
+  .problem-card {
+    background: #fff5f5;
+    border-left: 4px solid var(--sh-red);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .problem-card h3 { color: var(--sh-red); }
+
+  /* Solution cards */
+  .solution-card {
+    background: #f0faf8;
+    border-left: 4px solid var(--sh-green);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .solution-card h3 { color: var(--sh-green); }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    background: var(--sh-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.65em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+  }
+
+  /* CTA slide */
+  .slide-cta {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--sh-accent) 0%, var(--sh-blue) 100%);
+    color: white !important;
+    text-align: center !important;
+  }
+  .slide-cta h1 { color: white; text-align: center; }
+  .slide-cta p { color: rgba(255,255,255,0.85); text-align: center; font-size: 1em; }
+  .slide-cta .email {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: white;
+    margin-top: 1em;
+  }
+
+  /* Confidential footer */
+  .reveal .slides section::after {
+    content: "Confidential \2014 StoryHub Inc.";
+    position: absolute;
+    bottom: 16px;
+    right: 60px;
+    font-size: 0.5em;
+    color: #ccc;
+  }
+  .slide-title::after, .slide-divider::after, .slide-cta::after {
+    color: rgba(255,255,255,0.3) !important;
+  }
+
+  /* Diagram box */
+  .diagram-box {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 1em;
+    font-size: 0.8em;
+    line-height: 1.8;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #e8eeff;
+    color: var(--sh-blue);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.7em;
+    font-weight: 500;
+  }
+
+  /* Phase card */
+  .phase-card {
+    background: white;
+    border: 2px solid var(--sh-blue);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .phase-card .phase-num {
+    font-size: 0.7em;
+    font-weight: 700;
+    color: var(--sh-blue);
+    text-transform: uppercase;
+  }
+  .phase-card h3 {
+    color: var(--sh-blue);
+    margin-top: 0.3em;
+  }
+
+  /* Argument card for section 8 */
+  .argument-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(67,97,238,0.12);
+    border-top: 5px solid var(--sh-blue);
+    transition: transform 0.2s;
+  }
+  .argument-card .arg-num {
+    font-size: 3em;
+    font-weight: 900;
+    color: var(--sh-blue);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: -0.2em;
+  }
+  .argument-card h3 {
+    color: var(--sh-blue);
+    font-size: 1.15em;
+    margin-bottom: 0.5em;
+  }
+  .argument-card p {
+    font-size: 0.82em;
+    line-height: 1.7;
+  }
+
+  /* Trend stat card for section 9 */
+  .trend-stat {
+    text-align: center;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+    border-radius: 12px;
+    padding: 20px 16px;
+  }
+  .trend-stat .trend-num {
+    font-size: 2.8em;
+    font-weight: 900;
+    color: var(--sh-blue);
+    line-height: 1;
+  }
+  .trend-stat .trend-label {
+    font-size: 0.72em;
+    color: var(--sh-gray);
+    margin-top: 0.4em;
+    line-height: 1.4;
+  }
+
+  /* Case card for section 9 */
+  .case-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .case-card .case-name {
+    font-size: 1.1em;
+    font-weight: 900;
+    color: var(--sh-blue);
+    margin-bottom: 0.3em;
+  }
+  .case-card .case-desc {
+    font-size: 0.78em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 0.4em;
+  }
+  .case-card .case-insight {
+    font-size: 0.72em;
+    color: var(--sh-green);
+    font-weight: 500;
+  }
+
+  /* Insight box for section 9 */
+  .insight-box {
+    background: var(--sh-dark);
+    color: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 1em;
+  }
+  .insight-box h3 { color: white; margin-bottom: 0.5em; }
+  .insight-box li { color: rgba(255,255,255,0.9); font-size: 0.82em; }
+  .insight-box li::before { color: rgba(255,255,255,0.4); }
+
+  /* Layer diagram */
+  .layer-box {
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ==================== SLIDE 1: TITLE ==================== -->
+<section class="slide-title">
+  <div class="badge">Confidential | 2026年4月</div>
+  <h1>あらゆるビジネスの<br>"Beyond"を探る<br>グループメディアへ。</h1>
+  <div class="subtitle">メディアとしての"Beyond"も、ここから始める。</div>
+  <div class="company">StoryHub株式会社 | Beyond メディアリニューアル提案</div>
+</section>
+
+<!-- ==================== SLIDE 2: 提案趣旨 ==================== -->
+<section>
+  <h2>本提案の趣旨</h2>
+  <p style="font-size: 1.1em; font-weight: 500; margin-bottom: 1em;">
+    Beyondを<strong style="color: var(--sh-blue);">セブンリッチグループのコーポレートメディア</strong>として再定義し、<br>
+    グループ・出資先が属するインダストリーの"Beyond"を探求するメディアにリニューアルする提案です。
+  </p>
+  <div class="grid-2">
+    <div class="card accent">
+      <h3>グループブランディングの強化</h3>
+      <ul>
+        <li>多様な事業ドメインの意味づけを発信</li>
+        <li>リブランディングの継続発信チャネル</li>
+        <li>グループ間シナジーの可視化</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h3>メディアの新しい在り方の実験</h3>
+      <ul>
+        <li>AI技術とメディア運営知見の融合</li>
+        <li>StoryHubが裏側を支える運営モデル</li>
+        <li>コスト部門から収益事業への転換</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 3: DIVIDER - メディアコンセプト ==================== -->
+<section class="slide-divider">
+  <h2>メディアコンセプト</h2>
+  <p>Beyond &mdash; あらゆるビジネスの"Beyond"を探る</p>
+</section>
+
+<!-- ==================== SLIDE 8: コンセプトの二重構造 ==================== -->
+<section>
+  <h2>コンセプトの二重構造</h2>
+  <div class="grid-2" style="margin-top: 0.8em;">
+    <div class="card" style="border-top: 5px solid var(--sh-blue);">
+      <div class="num">1</div>
+      <h3>コンテンツの軸</h3>
+      <p style="font-size: 0.95em;">セブンリッチグループ・出資先が属するインダストリーの<strong style="color: var(--sh-blue);">「その先（Beyond）」</strong>を探求する</p>
+    </div>
+    <div class="card" style="border-top: 5px solid var(--sh-green);">
+      <div class="num" style="color: var(--sh-green);">2</div>
+      <h3>メディアの軸</h3>
+      <p style="font-size: 0.95em;">AI&times;グループメディアという形態で、メディアそのものの<strong style="color: var(--sh-green);">「その先（Beyond）」</strong>を実験する</p>
+    </div>
+  </div>
+  <div class="card accent" style="margin-top: 1.2em;">
+    <h3>今のBeyondチームの強みをそのまま活かせる</h3>
+    <ul>
+      <li>取材力・インタビュー力はコンセプトが変わっても不変</li>
+      <li>「ビジネスのBeyondを探る」フレームは企画が立てやすい</li>
+      <li>動画コンテンツへの展開意欲とも整合する</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 9: コンテンツの方向性 ==================== -->
+<section>
+  <h2>コンテンツの方向性</h2>
+  <div class="grid-2" style="margin-top: 0.5em;">
+    <div class="card" style="border-left: 4px solid var(--sh-blue);">
+      <h3 style="color: var(--sh-blue);">インダストリーの"Beyond"</h3>
+      <p>飲食業界のDX最前線、HRテックが変える採用、フィンテックと地域金融 etc.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--sh-green);">
+      <h3 style="color: var(--sh-green);">グループの"Beyond"</h3>
+      <p>グループ各社の挑戦ストーリー、経営者インタビュー、新規事業の裏側</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--sh-orange);">
+      <h3 style="color: var(--sh-orange);">カルチャーの"Beyond"</h3>
+      <p>働き方、組織づくり、多角化経営のリアル</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--sh-accent);">
+      <h3 style="color: var(--sh-accent);">メディアの"Beyond"</h3>
+      <p>AI活用の制作プロセス公開、グループメディアの実験記録</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 10: DIVIDER - 収益モデル ==================== -->
+<section class="slide-divider">
+  <h2>収益モデル &mdash; 2層構造</h2>
+  <p>「コストセンター」ではなく「プロフィットも狙える」構造にする</p>
+</section>
+
+<!-- ==================== SLIDE 11: Layer 1 ==================== -->
+<section>
+  <h2>Layer 1: グループメディア運営（SRG予算）</h2>
+  <div class="diagram-box" style="text-align: center; margin-bottom: 1em;">
+    <div style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: center;">
+      <div class="layer-box" style="background: var(--sh-blue);">
+        <strong>資金源</strong><br>リブランディング予算<br>or グループ広報予算
+      </div>
+      <div style="font-size: 1.5em; color: var(--sh-gray);">&rarr;</div>
+      <div class="layer-box" style="background: var(--sh-accent);">
+        <strong>提供価値</strong><br>グループブランディング<br>採用広報・社内報
+      </div>
+      <div style="font-size: 1.5em; color: var(--sh-gray);">&rarr;</div>
+      <div class="layer-box" style="background: var(--sh-green);">
+        <strong>StoryHubの役割</strong><br>AI制作基盤の提供<br>ナラティブ設計・運営支援
+      </div>
+    </div>
+  </div>
+  <h3>具体的な活用例</h3>
+  <ul>
+    <li>全グループ社員の入社インタビュー &rarr; StoryHub Interviewで自動化</li>
+    <li>各インダストリーのニュースフィード &rarr; 社員のインサイト向上</li>
+    <li>社内報・エンゲージメント向上コンテンツの制作</li>
+  </ul>
+</section>
+
+<!-- ==================== SLIDE 12: Layer 2 ==================== -->
+<section>
+  <h2>Layer 2: ドメインメディア事業（外部収益）</h2>
+  <table>
+    <tr><th>項目</th><th>内容</th></tr>
+    <tr><td>資金源</td><td>インダストリー関連企業のタイアップ、BPO外販</td></tr>
+    <tr><td>対象</td><td>SRGグループの事業ドメインに属する外部企業</td></tr>
+    <tr><td>StoryHubの役割</td><td>BPO案件の共同推進、プロダクト提供</td></tr>
+  </table>
+  <h3 style="margin-top: 1em;">タイアップの変化</h3>
+  <table>
+    <tr><th></th><th>現状</th><th style="color: var(--sh-blue);">リニューアル後</th></tr>
+    <tr><td>タイアップ対象</td><td>広くユース向け商材</td><td><strong style="color: var(--sh-green);">各インダストリー関連企業</strong></td></tr>
+    <tr><td>単価</td><td>低い（ユース向け）</td><td><strong style="color: var(--sh-green);">高い（BtoB・業界特化）</strong></td></tr>
+    <tr><td>取れなくなるもの</td><td>&mdash;</td><td>SRG競合企業、純リーチ目的の広告主</td></tr>
+    <tr><td>新たに取れるもの</td><td>&mdash;</td><td><strong style="color: var(--sh-green);">出資先・取引先との共同コンテンツ、業界イベント連動型</strong></td></tr>
+  </table>
+</section>
+
+<!-- ==================== SLIDE 13: DIVIDER - SRGメリット ==================== -->
+<section class="slide-divider">
+  <h2>セブンリッチにとってのメリット</h2>
+  <p>グループブランディング &times; シナジー &times; 投資合理性</p>
+</section>
+
+<!-- ==================== SLIDE 14: SRGメリット ==================== -->
+<section>
+  <h2>セブンリッチにとっての3つのメリット</h2>
+  <div class="grid-3">
+    <div class="solution-card">
+      <h3 style="font-size: 1.05em;">グループブランディング</h3>
+      <ul>
+        <li>「何をやっているかわからない」を解消</li>
+        <li>各事業の意味づけを発信</li>
+        <li>リブランディングの継続発信チャネル</li>
+        <li>非上場だからできる柔軟な展開</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <h3 style="font-size: 1.05em;">グループシナジーの創出</h3>
+      <ul>
+        <li>各社のナレッジがBeyondに集約</li>
+        <li>グループ内の相互理解促進</li>
+        <li>カルチャー形成に寄与</li>
+        <li>採用広報のグループ横断強化</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <h3 style="font-size: 1.05em;">投資合理性</h3>
+      <ul>
+        <li>存続理由が「グループに必要」で明確化</li>
+        <li>広告収益に依存しない安定運営</li>
+        <li>Layer 2でプロフィットセンター化も視野</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 15: StoryHubメリット ==================== -->
+<section>
+  <h2>StoryHubにとってのメリット</h2>
+  <table>
+    <tr><th>観点</th><th>内容</th></tr>
+    <tr><td>プロダクト実証</td><td>インタビュー・フィード・スタジオの統合的な活用事例</td></tr>
+    <tr><td>BPO事業の起点</td><td>グループメディア運営のノウハウを他社グループへ横展開</td></tr>
+    <tr><td>横展開ポテンシャル</td><td>地方豪族企業・非上場グループ（サントリーHD、SBIグループ等）向けの同モデル展開</td></tr>
+    <tr><td>フレームワーク検証</td><td>森さん以外でも再現できるナラティブ設計の型づくり</td></tr>
+  </table>
+</section>
+
+<!-- ==================== SLIDE 16: 費用構造 ==================== -->
+<section>
+  <h2>費用構造の提案（松竹梅）</h2>
+  <div class="grid-3" style="margin-top: 0.8em;">
+    <div class="card" style="border-top: 5px solid var(--sh-blue);">
+      <div class="badge">松: フルリニューアル</div>
+      <h3 style="color: var(--sh-blue);">月額 XX万円</h3>
+      <ul>
+        <li>コンセプト再設計 + AI制作基盤の全面導入</li>
+        <li>StoryHubが運営パートナーとして月次関与</li>
+        <li>社内報・採用広報・インダストリーコンテンツ網羅</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top: 5px solid var(--sh-green);">
+      <div class="badge" style="background: var(--sh-green);">竹: コアリニューアル</div>
+      <h3 style="color: var(--sh-green);">月額 XX万円</h3>
+      <ul>
+        <li>コンセプト再設計 + 主要コンテンツのAI化</li>
+        <li>月1-2回アドバイザリー + プロダクト提供</li>
+        <li>まずインダストリーコンテンツ中心に立上げ</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top: 5px solid var(--sh-orange);">
+      <div class="badge" style="background: var(--sh-orange);">梅: ミニマムスタート</div>
+      <h3 style="color: var(--sh-orange);">月額 XX万円</h3>
+      <ul>
+        <li>コンセプト設計のみStoryHubが支援</li>
+        <li>AI制作基盤は段階的に導入</li>
+        <li>まず3ヶ月のトライアルとして開始</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top: 1em; font-size: 0.8em; color: var(--sh-gray);">※ 金額はセブンリッチ側のリブランディング予算感を確認した上で具体化</p>
+</section>
+
+<!-- ==================== SLIDE 17: DIVIDER - ロードマップ ==================== -->
+<section class="slide-divider">
+  <h2>ロードマップ</h2>
+  <p>2026年4月〜12月</p>
+</section>
+
+<!-- ==================== SLIDE 24: ロードマップ Phase 0-1 ==================== -->
+<section>
+  <h2>ロードマップ（Phase 0-1）</h2>
+  <table>
+    <tr><th>Phase</th><th>時期</th><th>アクション</th><th>担当</th></tr>
+    <tr style="background: #f0f4ff;">
+      <td rowspan="3" style="font-weight: 700; color: var(--sh-blue); vertical-align: top;">0<br><span style="font-size: 0.8em;">合意形成</span></td>
+      <td rowspan="3" style="vertical-align: top;">4月</td>
+      <td>本提案方針の合意（吉川さん・服部さんとのMTG）</td><td>StoryHub + SRG</td>
+    </tr>
+    <tr style="background: #f0f4ff;"><td>リブランディング予算との整合確認</td><td>SRG（石川さん）</td></tr>
+    <tr style="background: #f0f4ff;"><td>費用感の合意</td><td>StoryHub + SRG</td></tr>
+    <tr>
+      <td rowspan="4" style="font-weight: 700; color: var(--sh-blue); vertical-align: top;">1<br><span style="font-size: 0.8em;">コンセプト<br>再設計</span></td>
+      <td rowspan="4" style="vertical-align: top;">5-6月</td>
+      <td>メディアコンセプトの詳細設計</td><td>StoryHub + Beyond</td>
+    </tr>
+    <tr><td>AI制作基盤（StoryHubプロダクト）の導入</td><td>StoryHub</td></tr>
+    <tr><td>パイロット記事の制作（3-5本）</td><td>Beyond + StoryHub</td></tr>
+    <tr><td>既存コンテンツの棚卸し・方針整理</td><td>Beyond</td></tr>
+  </table>
+</section>
+
+<!-- ==================== SLIDE 25: ロードマップ Phase 2-3 ==================== -->
+<section>
+  <h2>ロードマップ（Phase 2-3）</h2>
+  <table>
+    <tr><th>Phase</th><th>時期</th><th>アクション</th><th>KPI</th></tr>
+    <tr style="background: #f0f4ff;">
+      <td rowspan="4" style="font-weight: 700; color: var(--sh-blue); vertical-align: top;">2<br><span style="font-size: 0.8em;">本格運用<br>+社内浸透</span></td>
+      <td rowspan="4" style="vertical-align: top;">7-9月</td>
+      <td>リニューアルローンチ</td><td>公開・社内アナウンス</td>
+    </tr>
+    <tr style="background: #f0f4ff;"><td>グループ各社へのコンテンツ取材開始</td><td>月次コンテンツ本数</td></tr>
+    <tr style="background: #f0f4ff;"><td>社内報・社員インタビューの定常運用</td><td>グループ社員エンゲージメント</td></tr>
+    <tr style="background: #f0f4ff;"><td>Layer 2（ドメインタイアップ）の営業開始</td><td>初回タイアップ受注</td></tr>
+    <tr>
+      <td rowspan="3" style="font-weight: 700; color: var(--sh-blue); vertical-align: top;">3<br><span style="font-size: 0.8em;">収益化<br>+横展開</span></td>
+      <td rowspan="3" style="vertical-align: top;">10-12月</td>
+      <td>Layer 2の安定稼働</td><td>月次外部売上</td>
+    </tr>
+    <tr><td>グループメディア運営ガイドラインの策定</td><td>ガイドライン初版</td></tr>
+    <tr><td>横展開候補の選定・アプローチ</td><td>候補リスト作成</td></tr>
+  </table>
+</section>
+
+<!-- ==================== SLIDE 26: v1提案との関係 ==================== -->
+<section>
+  <h2>v1提案との関係</h2>
+  <p style="margin-bottom: 0.8em; font-size: 0.9em;">本提案は、2026年3月のv1提案（コンテンツスタジオのテストベッド構想）を発展させたもの。</p>
+  <table>
+    <tr><th>要素</th><th>v1提案</th><th style="color: var(--sh-blue);">本提案（メディアリニューアル）</th></tr>
+    <tr><td>コンセプト</td><td>スタートアップ創業家向け</td><td><strong>グループメディア（インダストリーのBeyond）</strong></td></tr>
+    <tr><td>SRG側の価値</td><td>コスト削減・黒字化</td><td><strong>グループブランディング・シナジー創出</strong></td></tr>
+    <tr><td>予算の出どころ</td><td>不明確</td><td><strong>リブランディング予算</strong></td></tr>
+    <tr><td>収益モデル</td><td>タイアップ + BPO</td><td><strong>2層（グループ予算 + ドメインタイアップ/BPO）</strong></td></tr>
+    <tr><td>StoryHubの関与</td><td>月1回アドバイザリー</td><td><strong>運営パートナーとして継続関与</strong></td></tr>
+    <tr><td>横展開先</td><td>メディア企業全般</td><td><strong>非上場グループ企業</strong></td></tr>
+  </table>
+  <div class="card accent" style="margin-top: 0.8em;">
+    <p style="margin: 0;"><strong>v1で提案したBPO事業・AI制作基盤・フランチャイズ構想はそのまま活きる。</strong><br>コンセプトと収益構造をアップグレードした形。</p>
+  </div>
+</section>
+
+<!-- ==================== CLOSING ==================== -->
+<section class="slide-cta">
+  <h1>あらゆるビジネスの<br>"Beyond"を探る<br>グループメディアへ。</h1>
+  <p>メディアとしての"Beyond"も、ここから始める。</p>
+  <div class="email">StoryHub株式会社 | Confidential</div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  width: 1280,
+  height: 720,
+  margin: 0,
+  transition: 'fade',
+  transitionSpeed: 'fast',
+  controls: true,
+  progress: true,
+  center: false
+});
+</script>
+</body>
+</html>
